@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-family: Geneva, Verdana, sans-serif;
+
+}
+
+main {
+    width: 60%;
+    text-align: center;
+}
+
+img {
+    width: 250px;
+    height: 220px;
+}
+
+#message {
+    font-size: 42px;
+}
+
+#senderName{
+    font-size: 28px;
+    text-align: right;
+}
+
+button {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    height: 70px;
+    font-size: 28px;
+}
+
+#btn-yes {
+    background-color: rgb(33, 163, 21);
+}
+
+#btn-no {
+    background-color: rgb(170, 0, 0);
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        width: 90%;
+    }
+    p {
+        font-size: 32px;
+    }
+}
