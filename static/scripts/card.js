@@ -7,6 +7,7 @@ let btnNo = document.getElementById("btn-no")
 let gif = document.getElementById("gif")
 let msg = document.getElementById("message")
 let sender = document.getElementById("senderName")
+let createlink = document.getElementById("createpage")
 
 btnYes.addEventListener("mouseenter", () => {
     gif.src = "static/resource/cat_excited.gif"
@@ -29,6 +30,7 @@ btnYes.addEventListener("click", async() => {
     msg.textContent = "YAY THANK YOU!!! <333"
     await sleep(30)
     gif.src = "static/resource/cat_success.gif"
+    createlink.style  = "display: block"
 
     let form = {
         "id": document.getElementById("card-id").textContent,
@@ -69,6 +71,9 @@ btnNo.addEventListener("click", async() => {
         msg.textContent = "NOOOOO </3"
         await sleep(30)
         gif.src = "static/resource/cat_wiping.gif"
+
+        createlink.style  = "display: block"
+
 
         let form = {
         "id": document.getElementById("card-id").textContent,

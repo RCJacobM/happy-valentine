@@ -21,7 +21,7 @@ func GetValentineCard(ctx *gin.Context) {
 	var valentine models.Valentines
 	initializers.DB.First(&valentine, "create_id = ?", param.CreateId)
 	if valentine.ID == 0 {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "no"})
+		ctx.HTML(http.StatusNotFound, "404.html", gin.H{"base": os.Getenv("base")})
 		return
 	}
 

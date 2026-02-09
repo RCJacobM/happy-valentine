@@ -4,6 +4,7 @@ import (
 	"hash/fnv"
 	"math/rand"
 	"net/http"
+	"os"
 	"valentoins/initializers"
 	"valentoins/models"
 
@@ -33,6 +34,7 @@ func generateId(seed string) string {
 }
 
 func CreateValentine(ctx *gin.Context) {
+	host := ctx.Request.Host
 	// get both names
 	var body struct {
 		Receipient string `form:"receipient" binding:"required"`
@@ -59,9 +61,7 @@ func CreateValentine(ctx *gin.Context) {
 
 		if pgErr, ok := res.Error.(*pgconn.PgError); ok {
 			if pgErr.Code == "23505" { // send link here
-				ctx.JSON(http.StatusOK, gin.H{
-					"message": "ya good man",
-				})
+				ctx.HTML(http.StatusOK, "card_ready.html", gin.H{"base": os.Getenv("base"), "id": generated_id, "host": host})
 			} else {
 				ctx.JSON(http.StatusBadRequest, gin.H{
 					"message": "nop2",
@@ -79,10 +79,12 @@ func CreateValentine(ctx *gin.Context) {
 
 	//send link
 
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": generated_id,
-		"rec":     body.Receipient,
-		"sed":     body.Sender,
-	})
+	// ctx.JSON(http.StatusOK, gin.H{
+	// 	"message": generated_id,
+	// 	"rec":     body.Receipient,
+	// 	"sed":     body.Sender,
+	// })
+
+	ctx.HTML(http.StatusOK, "card_ready.html", gin.H{"id": generated_id, "base": os.Getenv("base"), "host": host})
 
 }

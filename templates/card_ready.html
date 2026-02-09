@@ -18,14 +18,7 @@
             <button id="btn-no">no</button>
         </div>
 
-        <p style="text-align: left;">Enter your names:</p>
-        <form action="create" method="POST">
-            <input type="text" id="receipient" name="receipient" placeholder="Recieptient's name" required>
-            <input type="text" id="sender" name="sender" placeholder="Your name" required>
-            <input type="submit" value="Create Card">
-        </form>
-        <br>
-        <p>made w/ love by jacob</p>
+        <h1>https://{{.host}}{{.base}}card?id={{.id}}</h1>
     </main>
     <script src="static/scripts/card.js"></script>
     <script src="static/scripts/demo.js"></script>

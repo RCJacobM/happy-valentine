@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net/http"
 	"os"
 	"valentoins/controllers"
 	"valentoins/initializers"
@@ -15,9 +16,14 @@ func init() {
 }
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/static", "./static")
+
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.Redirect(http.StatusMovedPermanently, "/create")
+	})
 
 	r.GET("/create", func(ctx *gin.Context) {
 		ctx.HTML(200, "create.html", gin.H{"base": os.Getenv("base")})
