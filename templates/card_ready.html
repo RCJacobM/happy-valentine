@@ -4,6 +4,7 @@
     <base href="{{.base}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/resource/heart.ico">
     <link rel="stylesheet" href="static/styles/styles.css">
     <link rel="stylesheet" href="static/styles/card.css">
     <title>Create Valentine Card</title>
@@ -12,15 +13,22 @@
     <main>
         <div id="card-demo">
             <img src="static/resource/cat_heart.gif" alt="" id="gif">
-            <p id="message">Name, will you be my Valentine?</p>
-            <p id="senderName">-YourName</p>
+            <p id="message">{{.receipient}}, will you be my Valentine?</p>
+            <p id="senderName">-{{.sender}}</p>
             <button id="btn-yes">yes</button>
             <button id="btn-no">no</button>
         </div>
-
-        <h1>https://{{.host}}{{.base}}card?id={{.id}}</h1>
+        <p>click the link to copy. Good luck!!</p>
+        <h1 id="link" style="text-decoration: underline;">https://{{.host}}{{.base}}card?id={{.id}}</h1>
     </main>
     <script src="static/scripts/card.js"></script>
-    <script src="static/scripts/demo.js"></script>
+    <script>
+        let link = document.getElementById("link")
+        link.addEventListener("click", () => {
+            navigator.clipboard.writeText(link.textContent)
+            link.textContent = "Copied to clipboard!"
+            link.style = "text-decoration: none"
+        })
+    </script>
 </body>
 </html>

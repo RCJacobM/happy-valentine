@@ -79,12 +79,6 @@ func CreateValentine(ctx *gin.Context) {
 
 	//send link
 
-	// ctx.JSON(http.StatusOK, gin.H{
-	// 	"message": generated_id,
-	// 	"rec":     body.Receipient,
-	// 	"sed":     body.Sender,
-	// })
-
-	ctx.HTML(http.StatusOK, "card_ready.html", gin.H{"id": generated_id, "base": os.Getenv("base"), "host": host})
+	ctx.HTML(http.StatusOK, "card_ready.html", gin.H{"id": generated_id, "base": os.Getenv("base"), "host": host, "receipient": body.Receipient, "sender": body.Sender})
 
 }
