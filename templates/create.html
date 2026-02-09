@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles/styles.css">
-    <link rel="stylesheet" href="/static/styles/card.css">
+    <link rel="stylesheet" href="{{.static}}/styles/styles.css">
+    <link rel="stylesheet" href="{{.static}}/styles/card.css">
     <title>Create Valentine Card</title>
 </head>
 <body>
     <main>
         <div id="card-demo">
-            <img src="/static/resource/cat_heart.gif" alt="" id="gif">
+            <img src="{{.static}}/resource/cat_heart.gif" alt="" id="gif">
             <p id="message">Name, will you be my Valentine?</p>
             <p id="senderName">-YourName</p>
             <button id="btn-yes">yes</button>
@@ -24,7 +24,7 @@
             <input type="submit" value="Create Card">
         </form>
     </main>
-    <script src="/static/scripts/card.js"></script>
-    <script src="/static/scripts/demo.js"></script>
+    <script src="{{.static}}/scripts/card.js"></script>
+    <script src="{{.static}}/scripts/demo.js"></script>
 </body>
 </html>

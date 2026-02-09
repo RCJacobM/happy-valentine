@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"valentoins/controllers"
 	"valentoins/initializers"
 
@@ -18,13 +19,15 @@ func main() {
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/static", "./static")
 
+	static := os.Getenv("static")
+
 	r.GET("/create", func(ctx *gin.Context) {
-		ctx.HTML(200, "create.html", nil)
+		ctx.HTML(200, "create.html", gin.H{"static": static})
 	})
 	r.POST("/create", controllers.CreateValentine)
 
 	r.GET("/card", controllers.GetValentineCard)
 	r.POST("/card", controllers.Result)
 
-	r.Run("0.0.0.0:5001") // 127.0.0.1
+	r.Run("127.0.0.1:5001") // 127.0.0.1
 }
