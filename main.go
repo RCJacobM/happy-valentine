@@ -22,7 +22,7 @@ func main() {
 	r.Static("/static", "./static")
 
 	r.GET("/", func(ctx *gin.Context) {
-		ctx.Redirect(http.StatusMovedPermanently, "/create")
+		ctx.Redirect(http.StatusMovedPermanently, os.Getenv("base")+"create")
 	})
 
 	r.GET("/create", func(ctx *gin.Context) {
@@ -33,5 +33,5 @@ func main() {
 	r.GET("/card", controllers.GetValentineCard)
 	r.POST("/card", controllers.Result)
 
-	r.Run("127.0.0.1:5001") // 127.0.0.1
+	r.Run("127.0.0.1:5002") // 127.0.0.1
 }
