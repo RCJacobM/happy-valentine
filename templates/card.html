@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="{{.base}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles/card.css">
+    <link rel="stylesheet" href="static/styles/card.css">
     <title>Will you be my Valentine?</title>
 </head>
 <body>
     <main>
-        <img src="/static/resource/cat_heart.gif" alt="" id="gif">
+        <img src="static/resource/cat_heart.gif" alt="" id="gif">
         <p id="message"> {{.receipient}}, will you be my Valentine?</p>
         <p id="senderName">-{{.sender}}</p>
         <button id="btn-yes">yes</button>
         <button id="btn-no">no</button>
     </main>
     <p id="card-id" style="display: none;">{{.id}}</p>
-<script src="/static/scripts/card.js"></script>
+<script src="static/scripts/card.js"></script>
 </body>
 </html>

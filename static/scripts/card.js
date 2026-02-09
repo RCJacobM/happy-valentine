@@ -9,16 +9,16 @@ let msg = document.getElementById("message")
 let sender = document.getElementById("senderName")
 
 btnYes.addEventListener("mouseenter", () => {
-    gif.src = "/static/resource/cat_excited.gif"
+    gif.src = "static/resource/cat_excited.gif"
 })
 btnNo.addEventListener("mouseenter", () => {
-    gif.src = "/static/resource/cat_cry.gif"
+    gif.src = "static/resource/cat_cry.gif"
 })
 btnYes.addEventListener("mouseleave", () => {
-    gif.src = "/static/resource/cat_heart.gif"
+    gif.src = "static/resource/cat_heart.gif"
 })
 btnNo.addEventListener("mouseleave", () => {
-    gif.src = "/static/resource/cat_heart.gif"
+    gif.src = "static/resource/cat_heart.gif"
 })
 
 
@@ -28,7 +28,7 @@ btnYes.addEventListener("click", async() => {
     sender.style = "display: none"
     msg.textContent = "YAY THANK YOU!!! <333"
     await sleep(30)
-    gif.src = "/static/resource/cat_success.gif"
+    gif.src = "static/resource/cat_success.gif"
 
     let form = {
         "id": document.getElementById("card-id").textContent,
@@ -38,7 +38,7 @@ btnYes.addEventListener("click", async() => {
 
     let encoded = new URLSearchParams(form)
 
-    fetch("/card", {
+    fetch("card", {
         method: 'POST', 
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -68,7 +68,7 @@ btnNo.addEventListener("click", async() => {
         sender.style = "display: none"
         msg.textContent = "NOOOOO </3"
         await sleep(30)
-        gif.src = "/static/resource/cat_wiping.gif"
+        gif.src = "static/resource/cat_wiping.gif"
 
         let form = {
         "id": document.getElementById("card-id").textContent,
@@ -78,7 +78,7 @@ btnNo.addEventListener("click", async() => {
 
     let encoded = new URLSearchParams(form)
 
-    fetch("/card", {
+    fetch("card", {
         method: 'POST', 
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"

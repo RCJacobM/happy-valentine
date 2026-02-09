@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"valentoins/controllers"
 	"valentoins/initializers"
 
@@ -19,7 +20,7 @@ func main() {
 	r.Static("/static", "./static")
 
 	r.GET("/create", func(ctx *gin.Context) {
-		ctx.HTML(200, "create.html", nil)
+		ctx.HTML(200, "create.html", gin.H{"base": os.Getenv("base")})
 	})
 	r.POST("/create", controllers.CreateValentine)
 

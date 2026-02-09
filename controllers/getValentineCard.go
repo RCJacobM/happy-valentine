@@ -25,7 +25,7 @@ func GetValentineCard(ctx *gin.Context) {
 		return
 	}
 
-	ctx.HTML(200, "card.html", gin.H{"receipient": valentine.Receipient, "sender": valentine.Sender, "id": valentine.CreateId, "static": os.Getenv("static")})
+	ctx.HTML(200, "card.html", gin.H{"receipient": valentine.Receipient, "sender": valentine.Sender, "id": valentine.CreateId, "base": os.Getenv("base")})
 
 }
 
